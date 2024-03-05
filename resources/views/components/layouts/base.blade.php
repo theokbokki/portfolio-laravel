@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home :: Portfolio</title>
+    <title>Théoo{{ $title ? ' • '.$title : '' }}</title>
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <h1>Home</h1>
+    {{ $slot }}
 </body>
 </html>

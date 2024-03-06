@@ -1,0 +1,64 @@
+@use '../config/colors';
+
+.nav {
+    margin-top: 2.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.625rem;
+    border-bottom: 0.0625rem solid colors.$grey-100;
+
+    &__items {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    &__item {
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+
+        &--logo {
+            font-size: 1px;
+            color: transparent;
+            background-image: url("../img/logo.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: transparent;
+            background-size: 1.5rem;
+            width: 1.5rem;
+            aspect-ratio: 1/1;
+            padding: .25rem;
+            border-radius: .5rem;
+            transition: background-color 250ms ease-in-out;
+
+            &:hover {
+                background-color: colors.$orange;
+                transition: background-color 250ms ease-in-out;
+            }
+        }
+
+        &--contact {
+            padding: 0.625rem 1rem;
+            border-radius: .5rem;
+            background: colors.$grey-100;
+            transition: background 150ms ease-in-out;
+            display: flex;
+            gap: .25rem;
+
+            &:hover {
+                color: colors.$grey-700;
+                background: colors.$grey-200;
+                transition: background 150ms ease-in-out;
+            }
+
+            .item__arrow {
+                width: 0.875rem;
+                aspect-ratio: 1/1;
+            }
+        }
+    }
+}

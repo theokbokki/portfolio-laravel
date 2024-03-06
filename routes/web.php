@@ -19,5 +19,8 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale(),
 	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 ], function() {
-    Route::get('/', HomeController::class);
+    Route::get('/', HomeController::class)->name('home');
+    Route::get('/work', HomeController::class)->name('work');
+    Route::get('/blog', HomeController::class)->name('blog');
+    Route::get('/contact', HomeController::class)->name('contact');
 });

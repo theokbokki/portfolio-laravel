@@ -7,6 +7,7 @@
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
 <body>
+    <h1 class="sro">@lang('commons.title', ['title' => $title])</h1>
     <x-nav/>
     {{ $slot }}
 </body>

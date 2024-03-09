@@ -9,3 +9,11 @@
     white-space: nowrap;
     border-width: 0;
 }
+
+.content > * {
+    grid-column: content;
+}
+
+.full {
+    grid-column: full;
+}

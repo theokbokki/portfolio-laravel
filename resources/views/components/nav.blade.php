@@ -1,4 +1,4 @@
-<nav class="nav">
+<nav class="nav full">
     <h2 class="nav__title sro">@lang('nav.title')</h2>
     <div class="nav__items nav__items--left">
         <a href="{{ route('home') }}" class="nav__item nav__item--logo">@lang('nav.home')</a>

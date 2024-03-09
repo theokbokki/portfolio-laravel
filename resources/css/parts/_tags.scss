@@ -1,0 +1,26 @@
+@use "../config/colors";
+
+.tag {
+    position: relative;
+    background: colors.$white;
+    border-radius: 0.375rem;
+    max-width: max-content;
+    padding: 0.25rem .5rem;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: -0.03125rem;
+        right: -0.03125rem;
+        bottom: -0.03125rem;
+        left: -0.03125rem;
+        background: linear-gradient(to bottom, colors.$grey-200, colors.$grey-300);
+        z-index: -1;
+        border-radius: 0.40625rem;
+    }
+
+    &__text {
+        font-size: 0.875rem;
+        color: colors.$grey-400;
+    }
+}

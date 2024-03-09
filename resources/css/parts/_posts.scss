@@ -1,0 +1,29 @@
+@use '../config/colors';
+
+.posts {
+    max-width: 50rem;
+
+    &__container {
+        padding: 10rem 0;
+    }
+
+    &__for-year {
+        display: flex;
+        gap: 6rem;
+        position: relative;
+
+        &:not(:last-child) {
+            margin-bottom: 6rem;
+        }
+    }
+
+    &__year {
+        font-size: 1.25rem;
+        position: sticky;
+        height: max-content;
+        top: 4rem;
+        margin-bottom: 4rem;
+        color: colors.$grey-300;
+        line-height: 140%;
+    }
+}

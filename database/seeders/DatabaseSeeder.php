@@ -16,5 +16,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'Théo',
             'email' => 'theoleonet.dev@gmail.com',
         ]);
+
+        \App\Models\Post::factory(30)->create();
+
+        \App\Models\Tag::factory(10)->create();
+
+        $this->call(PostTagRelationshipSeeder::class);
     }
 }

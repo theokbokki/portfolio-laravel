@@ -1,0 +1,61 @@
+@use '../config/colors';
+
+.post-card {
+    width: 100%;
+    position: relative;
+
+    &:not(:last-child) {
+        padding-bottom: 2rem;
+        border-bottom: 0.0625rem solid colors.$grey-200;
+    }
+
+    &:not(:first-child) {
+        margin-top: 2rem;
+    }
+
+    &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        color: transparent;
+        font-size: 1px;
+        z-index: 1;
+
+        &:hover {
+            text-decoration: none;
+            color: transparent;
+
+            & + .post-card__title > .post-card__title--underline {
+                background-size: 100% 100%;
+            }
+        }
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        margin-bottom: .75rem;
+        line-height: 140%;
+
+        &--underline {
+            width: calc(100%);
+            background-image: linear-gradient(transparent calc(100% - .5rem), colors.$orange-light .5rem);
+            background-repeat: no-repeat;
+            background-size: 0% 100%;
+            transition: background-size 500ms;
+        }
+    }
+
+    &__tags {
+        display: flex;
+        gap: .5em;
+        margin-top: 1rem;
+    }
+
+    &__excerpt {
+        color: colors.$grey-500;
+        line-height: 160%;
+    }
+}

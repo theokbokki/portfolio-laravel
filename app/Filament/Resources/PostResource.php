@@ -5,8 +5,13 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
+use App\Models\Tag;
 use Filament\Forms;
+use Filament\Forms\Components\Actions\Action;
+use Filament\Forms\Components\CheckboxList;
+use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Form;
@@ -24,6 +29,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use function pcov\waiting;
 
 class PostResource extends Resource
 {
@@ -37,9 +43,19 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title'),
+                TextInput::make('title')
+                    ->required(),
 
                 Textarea::make('excerpt'),
+
+                Select::make('tags')
+                    ->multiple()
+                    ->native(false)
+                    ->relationship(titleAttribute: 'text')
+                    ->preload()
+                    ->getOptionLabelFromRecordUsing(function (Tag $record, $livewire): string {
+                        return $record->getTranslation('text', $livewire->activeLocale);
+                    }),
 
                 DateTimePicker::make('published_at')
             ]);
@@ -65,11 +81,11 @@ class PostResource extends Resource
                             return 'draft';
                         }
 
-                        if ($record->published_at < now()) {
+                        if ($record->published_at > now()) {
                             return 'planned';
                         }
 
-                        if ($record->published_at >= now()) {
+                        if ($record->published_at <= now()) {
                             return 'published';
                         }
                     })

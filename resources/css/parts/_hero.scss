@@ -5,11 +5,12 @@
     margin-top: 5rem;
 
     &__title {
+        line-height: 110%;
         font-size: 2.5rem;
         font-weight: 600;
 
         &--gradient {
-            background: linear-gradient(135deg, colors.$yellow, colors.$orange);
+            background: linear-gradient(135deg, colors.$yellow, colors.$orange-500);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;

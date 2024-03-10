@@ -20,7 +20,6 @@ Route::group([
 	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 ], function() {
     Route::get('/', HomeController::class)->name('home');
-    Route::get('/work', HomeController::class)->name('work');
-    Route::get('/blog', HomeController::class)->name('blog');
+    Route::post('/filter_posts', [HomeController::class, 'filterPosts'])->name('filter-posts');
     Route::get('/contact', HomeController::class)->name('contact');
 });

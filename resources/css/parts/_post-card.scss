@@ -1,6 +1,8 @@
 @use '../config/colors';
 
 .post-card {
+    display: flex;
+    gap: 1rem;
     width: 100%;
     position: relative;
 
@@ -11,6 +13,13 @@
 
     &:not(:first-child) {
         margin-top: 2rem;
+    }
+
+    &__type {
+        min-width: 1.5rem;
+        aspect-ratio: 1/1;
+        margin-top: 0.125rem;
+        filter: invert(72%) sepia(0%) saturate(1131%) hue-rotate(146deg) brightness(91%) contrast(89%);
     }
 
     &__link {
@@ -41,7 +50,7 @@
 
         &--underline {
             width: calc(100%);
-            background-image: linear-gradient(transparent calc(100% - .5rem), colors.$orange-light .5rem);
+            background-image: linear-gradient(transparent calc(100% - .5rem), colors.$orange-200 .5rem);
             background-repeat: no-repeat;
             background-size: 0% 100%;
             transition: background-size 500ms;
@@ -50,7 +59,7 @@
 
     &__tags {
         display: flex;
-        gap: .5em;
+        gap: .5rem;
         margin-top: 1rem;
     }
 

@@ -4,12 +4,6 @@
         <a href="{{ route('home') }}" class="nav__item nav__item--logo">@lang('nav.home')</a>
     </div>
     <div class="nav__items nav__items--right">
-        <a href="{{ route('work') }}" class="nav__item">
-            @lang('nav.work')
-        </a>
-        <a href="{{ route('blog') }}" class="nav__item">
-            @lang('nav.blog')
-        </a>
         <a href="{{ route('contact') }}" class="nav__item nav__item--contact">
             @lang('nav.contact')
             <span class="item__arrow">

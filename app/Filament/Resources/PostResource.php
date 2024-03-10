@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\PostType;
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
@@ -48,6 +49,11 @@ class PostResource extends Resource
 
                 Textarea::make('excerpt'),
 
+                Select::make('type')
+                    ->native(false)
+                    ->options(PostType::options())
+                    ->required(),
+
                 Select::make('tags')
                     ->multiple()
                     ->native(false)
@@ -69,6 +75,8 @@ class PostResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->description(fn (Post $record): ?string => Str::limit($record->excerpt, 60)),
+
+                TextColumn::make('type'),
 
                 TextColumn::make('user.name')
                     ->label('Author'),

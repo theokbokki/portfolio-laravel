@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\PostType;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -23,6 +24,7 @@ class PostFactory extends Factory
         return [
             'title' => fake()->sentence(rand(8, 20)),
             'excerpt' => fake()->paragraph(rand(1, 5)),
+            'type' => PostType::values()[array_rand(PostType::values())],
             'published_at' => Carbon::parse($date, 'Europe/Berlin'),
             'user_id' => User::inRandomOrder()->first()->id,
         ];

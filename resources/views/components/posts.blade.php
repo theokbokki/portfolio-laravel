@@ -1,4 +1,5 @@
-<section class="posts__container" id="posts">
+<section class="posts__container">
+<div id="posts"></div>
 <form action="{{ route('filter-posts') }}" method="post" class="posts__types">
     @csrf
     <button type="submit"

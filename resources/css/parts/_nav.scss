@@ -21,12 +21,6 @@
         background: colors.$grey-100;
     }
 
-    &__items {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-    }
-
     &__item {
         font-size: 0.875rem;
         font-weight: 600;
@@ -56,15 +50,28 @@
         &--contact {
             padding: 0.625rem 1rem;
             border-radius: .5rem;
-            background: colors.$grey-100;
-            transition: background 150ms ease-in-out;
+            background: linear-gradient(to bottom, colors.$grey-50, colors.$grey-100);
+            transition: color 150ms ease-in-out;
             display: flex;
             gap: .25rem;
+            color: colors.$grey-500;
+            position: relative;
 
             &:hover {
                 color: colors.$grey-700;
-                background: colors.$grey-200;
-                transition: background 150ms ease-in-out;
+                transition: color 150ms ease-in-out;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: -0.03125rem;
+                right: -0.03125rem;
+                bottom: -0.03125rem;
+                left: -0.03125rem;
+                border-radius: 0.53125rem;
+                background: linear-gradient(to bottom, colors.$grey-200, colors.$grey-300);
+                z-index: -1;
             }
 
             .item__arrow {

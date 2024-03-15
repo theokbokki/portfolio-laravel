@@ -6,6 +6,7 @@ html {
     width: 100vw;
     height: 100vh;
     color: colors.$grey-600;
+    scroll-behaviour: smooth;
 
     &:before {
         position: fixed;

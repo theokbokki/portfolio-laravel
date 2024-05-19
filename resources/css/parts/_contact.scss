@@ -1,0 +1,167 @@
+@use "../config/colors";
+@use "../config/fonts";
+
+.contact {
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+
+    &:target {
+        display: inline-block;
+    }
+
+    &__background {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(colors.$grey-800, .5);
+    }
+
+    &__content {
+        display: grid;
+        background: colors.$white;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: max-content;
+        padding: 4rem max(1rem, calc((100% - 51rem) / 2)) 2.5rem;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        animation: 500ms cubic-bezier(.32,.72,0,1) forwards slide-up;
+        transform: translateY(100%);
+
+        &:before {
+            content: "";
+            position: absolute;
+            background: colors.$grey-200;
+            width: 7.5rem;
+            height: 0.5rem;
+            top: 1rem;
+            border-radius: 999px;
+            justify-self: center;
+        }
+    }
+
+    &__title {
+        font-size:1.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    &__form {
+        display: grid;
+        gap: 2rem;
+    }
+
+    &__field {
+        display: grid;
+        gap: .5rem;
+    }
+
+    &__label {
+        font-size: 0.875rem;
+    }
+
+    &__input {
+        border: none;
+        padding: .75rem .5rem;
+        color: colors.$grey-700;
+        box-shadow: 0 0 0 1px colors.$grey-300;
+        border-radius: .25rem;
+        font-family: fonts.$open-runde;
+        transition: 200ms border ease-out,
+            200ms box-shadow ease-out;
+
+        &::placeholder {
+            color: colors.$grey-300;
+        }
+
+        &--textarea {
+            height: 8rem;
+            resize: vertical;
+        }
+
+        &:hover {
+            box-shadow: 0 0 0 1px colors.$orange-500;
+        }
+
+        &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 1px colors.$orange-500, 0 0 0 3px colors.$orange-100;
+            border-color: colors.$orange-500;
+        }
+    }
+
+    &__submit {
+        position: relative;
+        display: flex;
+        gap: .25rem;
+        justify-content: center;
+        align-content: center;
+        padding: 1rem 1rem;
+        background: linear-gradient(to bottom, colors.$grey-50, colors.$grey-100);
+        color: colors.$grey-500;
+        font-size: 0.875rem;
+        border: none;
+        border-radius: .5rem;
+        transition: color 150ms ease-in-out,
+            200ms outline ease-out,
+            200ms box-shadow ease-out;
+
+
+        &:hover,
+        &:focus-visible {
+            color: colors.$grey-700;
+            transition: color 150ms ease-in-out;
+
+            .contact__submit--icon {
+                transform: rotate(-20deg);
+            }
+        }
+
+        &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 1px colors.$orange-500, 0 0 0 0.1875rem colors.$orange-100;
+            transition: 200ms box-shadow ease-out;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: -0.03125rem;
+            right: -0.03125rem;
+            bottom: -0.03125rem;
+            left: -0.03125rem;
+            border-radius: 0.53125rem;
+            background: linear-gradient(to bottom, colors.$grey-200, colors.$grey-300);
+            z-index: -1;
+        }
+
+        &--icon {
+            width: 0.875rem;
+            height: 0.875rem;
+            transition: 200ms transform ease-out;
+        }
+    }
+
+    &__mail {
+        display: block;
+        text-align: right;
+        margin-top: 2rem;
+        font-size: 0.875rem;
+        text-decoration: none;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}

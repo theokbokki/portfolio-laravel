@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -21,5 +22,5 @@ Route::group([
 ], function() {
     Route::get('/', HomeController::class)->name('home');
     Route::post('/filter_posts', [HomeController::class, 'filterPosts'])->name('filter-posts');
-    Route::get('/contact', HomeController::class)->name('contact');
+    Route::post('/contact', ContactFormController::class)->name('contact');
 });

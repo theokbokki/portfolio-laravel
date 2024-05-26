@@ -96,6 +96,12 @@
         }
     }
 
+    &__error {
+        margin-top: .25rem;
+        font-size: .75rem;
+        color: colors.$error;
+    }
+
     &__submit {
         position: relative;
         display: flex;

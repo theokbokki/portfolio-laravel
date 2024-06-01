@@ -25,14 +25,13 @@ class Post extends Model
         'title',
         'slug',
         'excerpt',
-        'content',
+        'link',
         'user_id',
         'published_at',
     ];
 
     public $translatable = [
         'title',
-        'slug',
         'content',
         'excerpt',
     ];

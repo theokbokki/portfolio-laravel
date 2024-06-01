@@ -30,7 +30,6 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
-use function pcov\waiting;
 
 class PostResource extends Resource
 {
@@ -62,6 +61,9 @@ class PostResource extends Resource
                     ->getOptionLabelFromRecordUsing(function (Tag $record, $livewire): string {
                         return $record->getTranslation('text', $livewire->activeLocale);
                     }),
+
+                TextInput::make('link')
+                    ->url(),
 
                 DateTimePicker::make('published_at')
             ]);

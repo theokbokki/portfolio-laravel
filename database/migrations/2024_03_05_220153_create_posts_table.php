@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->json('title');
-            $table->json('slug');
+            $table->string('slug');
             $table->json('excerpt')->nullable();
-            $table->json('content')->nullable();
+            $table->string('link')->nullable();
             $table->enum('type', PostType::values());
             $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();

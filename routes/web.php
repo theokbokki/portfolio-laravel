@@ -26,5 +26,5 @@ Route::group([
 
     Route::post('/contact', ContactFormController::class)->name('contact');
 
-    Route::get('/posts/{slug}', PostController::class)->name('post');
+    Route::get('/posts/{post}', PostController::class)->name('post');
 });

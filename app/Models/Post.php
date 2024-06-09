@@ -50,6 +50,14 @@ class Post extends Model
         ];
     }
 
+    /**
+     * Get the route key for the model.
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

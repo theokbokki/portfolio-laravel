@@ -7,17 +7,20 @@ use Illuminate\Contracts\View\View;
 
 class PostController extends Controller
 {
-    public function __invoke(string $slug): View
+    public function __invoke(Post $post): View
     {
         $locale = app()->getLocale();
-        $post = Post::where('slug', $slug)->first();
 
-        if ($post?->published) {
-            return view()->first([
-                'posts.'.$locale.'.'.$post->slug,
-                'posts.en.'.$post->slug,
-                abort(404)
-            ]);
+        if ($post->published_at > now() || is_null($post->published_at)) {
+            return abort(404);
+        }
+
+        if (view()->exists('posts.'.$locale.'.'.$post->slug)) {
+            return view('posts.'.$locale.'.'.$post->slug);
+        }
+
+        if (view()->exists('posts.en.'.$post->slug)) {
+            return view('posts.en.'.$post->slug);
         }
 
         return abort(404);

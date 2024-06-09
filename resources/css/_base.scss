@@ -8,31 +8,31 @@ html {
     height: 100vh;
     color: colors.$grey-600;
     scroll-behaviour: smooth;
-
-    &:before {
-        position: fixed;
-        content: "";
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 7.5rem;
-        background: linear-gradient(to top, white, transparent);
-        z-index: 15;
-    }
-
-    &:after {
-        position: fixed;
-        content: "";
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 7.5rem;
-        opacity: .95;
-        backdrop-filter: blur(5px);
-        -webkit-mask-image: linear-gradient(to top, black 25%, transparent);
-        mask-image: linear-gradient(to top, black 25%, transparent);
-        z-index: 15;
-    }
+    //
+    // &:before {
+    //     position: fixed;
+    //     content: "";
+    //     bottom: 0;
+    //     left: 0;
+    //     right: 0;
+    //     height: 7.5rem;
+    //     background: linear-gradient(to top, white, transparent);
+    //     z-index: 15;
+    // }
+    //
+    // &:after {
+    //     position: fixed;
+    //     content: "";
+    //     bottom: 0;
+    //     left: 0;
+    //     right: 0;
+    //     height: 7.5rem;
+    //     opacity: .95;
+    //     backdrop-filter: blur(5px);
+    //     -webkit-mask-image: linear-gradient(to top, black 25%, transparent);
+    //     mask-image: linear-gradient(to top, black 25%, transparent);
+    //     z-index: 15;
+    // }
 }
 
 body {

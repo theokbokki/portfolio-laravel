@@ -1,0 +1,171 @@
+@use '../config/colors';
+
+.wysiwyg {
+    padding-bottom: 4rem;
+    max-width: 80ch;
+    min-width: 0;
+
+    & > * {
+        & + p,
+        & + img,
+        & + table,
+        & + ul,
+        & + ol,
+        & + blockquote {
+            margin: 1.5rem 0;
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-weight: bold;
+        color: colors.$grey-700;
+        scroll-margin-top: 8rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        line-height: 120%;
+        margin: 4rem 0 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        line-height: 130%;
+        margin: 3rem 0 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        line-height: 140%;
+        margin: 2.5rem 0 1.25rem;
+    }
+
+    h4 {
+        font-size: 1.125rem;
+        line-height: 150%;
+        margin: 2.25rem 0 1.125rem;
+    }
+
+    h5,
+    h6 {
+        font-size: 1rem;
+        line-height: 150%;
+        margin: 2rem 0 1rem;
+    }
+
+    h6 {
+        color: colors.$grey-500;
+    }
+
+    p,
+    li {
+        font-size: 1rem;
+        line-height: 160%;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    ul,
+    ol {
+        padding-left: 1.25rem;
+
+        li {
+            padding: 0 0 0 0.25rem;
+            position: relative;
+            margin: .5rem 0;
+        }
+    }
+
+    ol {
+        list-style-type: decimal;
+
+        ul {
+            list-style-type: disc;
+        }
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+
+    blockquote {
+        text-align: left;
+        line-height: 120%;
+        margin-left: 2rem;
+
+        footer {
+            margin-top: 1rem;
+            font-size: .75rem;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    pre {
+        padding: 2rem;
+        border-radius: .5rem;
+        overflow-x: scroll;
+        font-family: monospace;
+        font-size: .875rem;
+
+        code {
+            > *:not(:first-child):not(:last-child) {
+                display: inline-block;
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    *:not(pre) > code {
+        padding: .2rem .4rem;
+        border-radius: .25rem;
+        background: colors.$grey-100;
+        color: colors.$orange-500;
+        font-family: monospace;
+        font-size: 0.875rem;
+    }
+
+    table {
+        width: 100%;
+        font-size: .875rem;
+        text-align: left;
+
+        thead {
+            font-weight: bold;
+        }
+
+        tr {
+            border-bottom: 1px solid colors.$grey-200;
+            line-height: 160%;
+        }
+
+        td {
+            padding: 0.75rem 0;
+
+            &:not(:first-child) {
+                padding-left: 1rem;
+            }
+        }
+
+        th {
+            padding-bottom: .75rem;
+
+            &:not(:first-child) {
+                padding-left: 1rem;
+            }
+        }
+    }
+}

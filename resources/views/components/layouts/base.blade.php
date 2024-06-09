@@ -10,5 +10,6 @@
     <h1 class="sro">@lang('commons.title', ['title' => $title])</h1>
     <x-nav/>
     {{ $slot }}
+    <x-contact />
 </body>
 </html>

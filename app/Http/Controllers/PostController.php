@@ -16,11 +16,11 @@ class PostController extends Controller
         }
 
         if (view()->exists('posts.'.$locale.'.'.$post->slug)) {
-            return view('posts.'.$locale.'.'.$post->slug);
+            return view('posts.'.$locale.'.'.$post->slug, compact('post'));
         }
 
         if (view()->exists('posts.en.'.$post->slug)) {
-            return view('posts.en.'.$post->slug);
+            return view('posts.en.'.$post->slug, compact('post'));
         }
 
         return abort(404);

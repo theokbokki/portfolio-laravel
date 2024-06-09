@@ -1,5 +1,5 @@
 <section class="contact" id="contact">
-    <a href="{{ LaravelLocalization::localizeUrl(route('home')) }}" class="contact__background"></a>
+    <a href="{{ LaravelLocalization::localizeUrl(request()->url()) }}" class="contact__background"></a>
     <div class="contact__content">
         <h2 class="contact__title">@lang('contact.title')</h2>
         <form action="{{ LaravelLocalization::localizeUrl(route('contact')) }}" method="post" class="contact__form">

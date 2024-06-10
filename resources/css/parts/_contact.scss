@@ -70,7 +70,7 @@
         border: none;
         padding: .75rem .5rem;
         color: colors.$grey-700;
-        box-shadow: 0 0 0 1px colors.$grey-300;
+        box-shadow: 0 0 0 .5px colors.$grey-300;
         border-radius: .25rem;
         font-family: fonts.$open-runde;
         transition: 200ms border ease-out,
@@ -114,6 +114,7 @@
         font-size: 0.875rem;
         border: none;
         border-radius: .5rem;
+        box-shadow: 0 0 0 .5px colors.$grey-200;
         transition: color 150ms ease-in-out,
             200ms outline ease-out,
             200ms box-shadow ease-out;
@@ -135,17 +136,17 @@
             transition: 200ms box-shadow ease-out;
         }
 
-        &:before {
-            content: "";
-            position: absolute;
-            top: -0.03125rem;
-            right: -0.03125rem;
-            bottom: -0.03125rem;
-            left: -0.03125rem;
-            border-radius: 0.53125rem;
-            background: linear-gradient(to bottom, colors.$grey-200, colors.$grey-300);
-            z-index: -1;
-        }
+        // &:before {
+        //     content: "";
+        //     position: absolute;
+        //     top: -0.03125rem;
+        //     right: -0.03125rem;
+        //     bottom: -0.03125rem;
+        //     left: -0.03125rem;
+        //     border-radius: 0.53125rem;
+        //     background: linear-gradient(to bottom, colors.$grey-200, colors.$grey-300);
+        //     z-index: -1;
+        // }
 
         &--icon {
             width: 0.875rem;

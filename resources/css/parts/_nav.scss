@@ -18,7 +18,7 @@
         bottom: 0;
         left: 4.9rem;
         right: 4.9rem;
-        height: 0.0625rem;
+        height: 1px;
         background: colors.$grey-100;
     }
 
@@ -57,26 +57,28 @@
             gap: .25rem;
             color: colors.$grey-500;
             position: relative;
+            box-shadow: 0 0 0 .5px colors.$grey-200;
 
             &:hover {
                 color: colors.$grey-700;
                 transition: color 150ms ease-in-out;
             }
 
-            &:before {
-                content: "";
-                position: absolute;
-                top: -0.03125rem;
-                right: -0.03125rem;
-                bottom: -0.03125rem;
-                left: -0.03125rem;
-                border-radius: 0.53125rem;
-                background: linear-gradient(to bottom, colors.$grey-200, colors.$grey-300);
-                z-index: -1;
-            }
+            // &:before {
+            //     content: "";
+            //     position: absolute;
+            //     top: -0.03125rem;
+            //     right: -0.03125rem;
+            //     bottom: -0.03125rem;
+            //     left: -0.03125rem;
+            //     border-radius: 0.53125rem;
+            //     background: linear-gradient(to bottom, colors.$grey-200, colors.$grey-300);
+            //     z-index: -1;
+            // }
 
             .item__arrow {
                 width: 0.875rem;
+                height: .875rem;
                 aspect-ratio: 1/1;
             }
         }

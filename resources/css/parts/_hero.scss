@@ -29,6 +29,7 @@
         gap: .375rem;
         position: relative;
         background: colors.$white;
+        box-shadow: 0 0 0 .5px colors.$grey-200;
 
         &--wave {
             display: inline-block;
@@ -36,16 +37,16 @@
             aspect-ratio: 1/1;
         }
 
-        &:before {
-            content: "";
-            position: absolute;
-            top: -0.03125rem;
-            right: -0.03125rem;
-            bottom: -0.03125rem;
-            left: -0.03125rem;
-            background: linear-gradient(to bottom, colors.$grey-200, colors.$grey-300);
-            z-index: -1;
-            border-radius: 0.53125rem;
-        }
+        // &:before {
+        //     content: "";
+        //     position: absolute;
+        //     top: -0.03125rem;
+        //     right: -0.03125rem;
+        //     bottom: -0.03125rem;
+        //     left: -0.03125rem;
+        //     background: linear-gradient(to bottom, colors.$grey-200, colors.$grey-300);
+        //     z-index: -1;
+        //     border-radius: 0.53125rem;
+        // }
     }
 }

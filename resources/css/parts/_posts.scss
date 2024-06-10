@@ -16,7 +16,7 @@
 
     &__types {
         display: flex;
-        gap: 0.03125rem;
+        gap: .5px;
         justify-content: right;
         margin-bottom: 2.5rem;
     }
@@ -28,6 +28,7 @@
         padding: .5rem 1rem;
         position: relative;
         transition: 150ms color ease-in-out;
+        box-shadow: 0 0 0 .5px colors.$grey-200;
 
         &:hover {
             cursor: pointer;
@@ -35,35 +36,35 @@
             transition: 150ms color ease-in-out;
         }
 
-        &:before {
-            content: "";
-            position: absolute;
-            top: -0.03125rem;
-            right: -0.03125rem;
-            bottom: -0.03125rem;
-            left: -0.03125rem;
-            background: linear-gradient(to bottom, colors.$grey-200, colors.$grey-300);
-            z-index: -1;
-        }
+        // &:before {
+        //     content: "";
+        //     position: absolute;
+        //     top: -0.03125rem;
+        //     right: -0.03125rem;
+        //     bottom: -0.03125rem;
+        //     left: -0.03125rem;
+        //     background: linear-gradient(to bottom, colors.$grey-200, colors.$grey-300);
+        //     z-index: -1;
+        // }
 
         &:first-of-type {
             border-top-left-radius: 0.375rem;
             border-bottom-left-radius: 0.375rem;
 
-            &:before {
-                border-top-left-radius: 0.40625rem;
-                border-bottom-left-radius: 0.40625rem;
-            }
+            // &:before {
+            //     border-top-left-radius: 0.40625rem;
+            //     border-bottom-left-radius: 0.40625rem;
+            // }
         }
 
         &:last-of-type {
             border-top-right-radius: 0.375rem;
             border-bottom-right-radius: 0.375rem;
 
-            &:before {
-                border-top-right-radius: 0.40625rem;
-                border-bottom-right-radius: 0.40625rem;
-            }
+            // &:before {
+            //     border-top-right-radius: 0.40625rem;
+            //     border-bottom-right-radius: 0.40625rem;
+            // }
         }
 
         &--selected {

@@ -95,6 +95,19 @@
         margin-bottom: 4rem;
         color: colors.$grey-300;
         line-height: 140%;
-        margin-right: 6rem;
+        margin-right: 4rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .posts {
+        &__for-year {
+            flex-direction: column;
+        }
+
+        &__year {
+            position: static;
+            margin-bottom: 3rem;
+        }
     }
 }

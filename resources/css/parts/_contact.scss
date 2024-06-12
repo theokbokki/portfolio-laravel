@@ -7,9 +7,11 @@
     width: 100vw;
     height: 100vh;
     z-index: 20;
+    padding-top: 2rem;
 
     &:target {
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
     }
 
     &__background {
@@ -24,16 +26,15 @@
     &__content {
         display: grid;
         background: colors.$white;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
+        margin: auto 0 0rem;
         height: max-content;
-        padding: 4rem max(1rem, calc((100% - 51rem) / 2)) 2.5rem;
+        max-height: 100vh;
+        padding: 4rem max(1rem, calc((100% - 51rem) / 2)) 5rem;
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
         animation: 500ms cubic-bezier(.32,.72,0,1) forwards slide-up;
         transform: translateY(100%);
+        overflow: scroll;
 
         &:before {
             content: "";

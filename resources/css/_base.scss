@@ -55,3 +55,13 @@ a {
         transition: color 150ms ease-in-out;
     }
 }
+
+@media screen and (max-width: 960px) {
+    body {
+        grid-template-columns:
+            [full-start] 2rem
+            [content-start] 1fr
+            [content-end] 2rem
+            [full-end];
+    }
+}

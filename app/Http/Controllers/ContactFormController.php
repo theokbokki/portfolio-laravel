@@ -34,7 +34,7 @@ class ContactFormController extends Controller
                 ->withFragment('#contact');
         }
 
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new Contact(
+        Mail::send(new Contact(
             $request->input('email'),
             $request->input('name'),
             $request->input('message'),

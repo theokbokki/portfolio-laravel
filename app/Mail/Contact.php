@@ -31,6 +31,7 @@ class Contact extends Mailable
     {
         return new Envelope(
             from: new Address($this->mail, $this->name),
+            to: env('MAIL_FROM_ADDRESS'),
             subject: 'New message from '.$this->name,
         );
     }

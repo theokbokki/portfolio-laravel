@@ -30,7 +30,7 @@ class Contact extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address($this->mail, $this->name),
+            from: env('MAIL_FROM_ADDRESS'),
             to: env('MAIL_FROM_ADDRESS'),
             subject: 'New message from '.$this->name,
         );

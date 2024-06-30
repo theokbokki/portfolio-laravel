@@ -1,5 +1,4 @@
 <section class="posts__container">
-<div id="posts"></div>
 <form action="{{ route('filter-posts') }}" method="post" class="posts__types">
     @csrf
     <button type="submit"
@@ -25,14 +24,18 @@
         @lang('posts.articles')
     </button>
 </form>
-@foreach($postsByYear as $year => $posts)
-    <div class="posts__for-year">
-        <p class="posts__year">{{ $year }}</p>
-        <div class="posts">
-        @foreach($posts as $post)
-            <x-post-card :$post/>
-        @endforeach
+@fragment('posts')
+<div class="posts">
+    @foreach($postsByYear as $year => $posts)
+        <div class="posts__for-year">
+            <p class="posts__year">{{ $year }}</p>
+            <div class="posts">
+            @foreach($posts as $post)
+                <x-post-card :$post/>
+            @endforeach
+            </div>
         </div>
-    </div>
-@endforeach
+    @endforeach
+</div>
+@endfragment
 </section>

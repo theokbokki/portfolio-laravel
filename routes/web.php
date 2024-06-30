@@ -22,7 +22,7 @@ Route::group([
 	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 ], function() {
     Route::get('/', HomeController::class)->name('home');
-    Route::post('/filter_posts', [HomeController::class, 'filterPosts'])->name('filter-posts');
+    Route::post('/filter-posts', [HomeController::class, 'filterPosts'])->name('filter-posts');
 
     Route::post('/contact', ContactFormController::class)->name('contact');
 

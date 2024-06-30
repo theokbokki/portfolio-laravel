@@ -39,6 +39,7 @@ body {
     margin: 0 auto;
     max-width: 90rem;
     display: grid;
+    transition: 500ms opacity ease-out, 300ms transform ease-out;
     grid-template-columns:
         [full-start] 5rem
         [content-start] 1fr

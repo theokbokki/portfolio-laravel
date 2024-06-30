@@ -1,44 +1,48 @@
-<section class="contact" id="contact">
+<section class="contact full" id="contact">
     <a href="{{ LaravelLocalization::localizeUrl(request()->url()) }}" class="contact__background"></a>
     <div class="contact__content">
         <h2 class="contact__title">@lang('contact.title')</h2>
         <form action="{{ LaravelLocalization::localizeUrl(route('contact')) }}" method="post" class="contact__form">
             @csrf
-            <div class="contact__field contact__field--name">
-                <label for="name" class="contact__label">@lang('contact.name')</label>
-                <input type="text"
-                    name="name"
-                    id="name"
-                    placeholder="Rick Astley"
-                    class="contact__input"
-                    value="{{ old('name') }}"
-                >
-                @error('name')
-                    <p class="contact__error">{{ $message }}</p>
-                @enderror
-            </div>
-            <div class="contact__field contact__field--email">
-                <label for="email" class="contact__label">@lang('contact.email')</label>
-                <input type="email"
-                    name="email"
-                    id="email"
-                    placeholder="rick@nggyu.com"
-                    class="contact__input"
-                    value="{{ old('email') }}"
-                >
-                @error('email')
-                    <p class="contact__error">{{ $message }}</p>
-                @enderror
-            </div>
-            <div class="contact__field contact__field--message">
-                <label for="message" class="contact__label">@lang('contact.message')</label>
-                <textarea name="message"
-                    id="message"
-                    placeholder="Never gonna give you up, Never gonna let you down..."
-                    class="contact__input contact__input--textarea">{{ old('message') }}</textarea>
-                    @error('message')
+                <div class="contact__fields">
+                @fragment('fields')
+                <div class="contact__field contact__field--name">
+                    <label for="name" class="contact__label">@lang('contact.name')</label>
+                    <input type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Rick Astley"
+                        class="contact__input"
+                        value="{{ old('name') }}"
+                    >
+                    @error('name')
                         <p class="contact__error">{{ $message }}</p>
                     @enderror
+                </div>
+                <div class="contact__field contact__field--email">
+                    <label for="email" class="contact__label">@lang('contact.email')</label>
+                    <input type="email"
+                        name="email"
+                        id="email"
+                        placeholder="rick@nggyu.com"
+                        class="contact__input"
+                        value="{{ old('email') }}"
+                    >
+                    @error('email')
+                        <p class="contact__error">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="contact__field contact__field--message">
+                    <label for="message" class="contact__label">@lang('contact.message')</label>
+                    <textarea name="message"
+                        id="message"
+                        placeholder="Never gonna give you up, Never gonna let you down..."
+                        class="contact__input contact__input--textarea">{{ old('message') }}</textarea>
+                        @error('message')
+                            <p class="contact__error">{{ $message }}</p>
+                        @enderror
+                </div>
+                @endfragment
             </div>
             <button type="submit" class="contact__submit">
                 @lang('contact.submit')

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Contact;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 
 class ContactFormController extends Controller
 {
-    public function __invoke(Request $request): RedirectResponse
+    public function __invoke(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -19,6 +19,14 @@ class ContactFormController extends Controller
         ]);
 
         if ($validator->fails()) {
+            if ($request->ajax()) {
+                session()->flashInput($request->except('_token'));
+
+                return view('components/contact', [])
+                    ->withErrors($validator)
+                    ->fragment('fields');
+            }
+
             return redirect()
                 ->back()
                 ->withErrors($validator)

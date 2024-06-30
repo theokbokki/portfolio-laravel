@@ -3,15 +3,18 @@
 .posts {
     max-width: 50rem;
 
+    &__hide {
+        animation: 300ms ease-out forwards fade-out;
+    }
+
+    &__show {
+        animation: 300ms ease-out forwards fade-in;
+    }
+
     &__container {
         max-width: 56.25rem;
         margin-top: 5rem;
         padding-bottom: 10rem;
-
-        #posts {
-            position: absolute;
-            top: 15rem;
-        }
     }
 
     &__types {
@@ -23,7 +26,8 @@
 
     &__type {
         border: none;
-        background: linear-gradient(to bottom, colors.$grey-50, colors.$grey-100);
+        // background: linear-gradient(to bottom, colors.$grey-50, colors.$grey-100);
+        background: colors.$grey-100;
         color: colors.$grey-400;
         padding: .5rem 1rem;
         position: relative;
@@ -33,7 +37,7 @@
         &:hover {
             cursor: pointer;
             color: colors.$grey-500;
-            transition: 150ms color ease-in-out;
+            transition: 250ms color ease-in-out, 250ms background ease-in-out;
         }
 
         // &:before {
@@ -68,7 +72,8 @@
         }
 
         &--selected {
-            background: linear-gradient(to bottom, colors.$orange-50, colors.$orange-100);
+            // background: linear-gradient(to bottom, colors.$orange-50, colors.$orange-100);
+            background: colors.$orange-100;
             color: colors.$orange-500;
 
             &:hover {
@@ -109,5 +114,23 @@
             position: static;
             margin-bottom: 3rem;
         }
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }

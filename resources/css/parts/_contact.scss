@@ -9,7 +9,18 @@
     z-index: 20;
     padding-top: 2rem;
 
-    &:target {
+    &--hide {
+        .contact__background {
+            animation: 500ms ease-out forwards fade-out;
+        }
+
+        .contact__content {
+            animation: 500ms cubic-bezier(.32,.72,0,1) forwards slide-down;
+        }
+    }
+
+    &:target,
+    &[data-visible="true"] {
         display: flex;
         flex-direction: column;
     }
@@ -21,6 +32,7 @@
         bottom: 0;
         left: 0;
         background: rgba(colors.$grey-800, .5);
+        animation: 500ms ease-out forwards fade-in;
     }
 
     &__content {
@@ -61,6 +73,10 @@
     &__field {
         display: grid;
         gap: .5rem;
+
+        &:not(:first-child) {
+            margin-top: 2rem;
+        }
     }
 
     &__label {
@@ -171,5 +187,32 @@
     }
     to {
         transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slide-down {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }

@@ -45,6 +45,8 @@ class Contact {
         const res = await axios.post('/contact', formData);
 
         this.fields.innerHTML = res.data;
+
+        this.handleClose(e);
     }
 }
 

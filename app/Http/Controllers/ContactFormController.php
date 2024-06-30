@@ -40,6 +40,11 @@ class ContactFormController extends Controller
             $request->input('message'),
         ));
 
+        if ($request->ajax()) {
+            return view('components/contact', [])
+                ->fragment('fields');
+        }
+
         return redirect()->back()->with('success', true);
     }
 }

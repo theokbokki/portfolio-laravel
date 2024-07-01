@@ -24,6 +24,8 @@ class Contact {
 
         this.scrollPosition = window.scrollY;
         document.body.classList.add('bodyblock');
+        document.body.style.top = -this.scrollPosition + 'px';
+        this.container.style.top = this.scrollPosition + 'px';
         this.container.dataset.visible = true;
     }
 
@@ -32,7 +34,6 @@ class Contact {
 
         document.body.classList.remove('bodyblock');
         window.scrollTo(0, this.scrollPosition);
-        this.container.style.top = this.scrollPosition + 'px';
         this.container.classList.add('contact--hide');
     }
 
@@ -40,7 +41,6 @@ class Contact {
         if (e.animationName === 'fade-out') {
             this.container.dataset.visible = false;
             this.container.classList.remove('contact--hide');
-            this.container.style.top = 0;
         }
     }
 

@@ -37,6 +37,7 @@ html {
 
 body {
     margin: 0 auto;
+    width: 100vw;
     max-width: 90rem;
     display: grid;
     transition: 500ms opacity ease-out, 300ms transform ease-out;

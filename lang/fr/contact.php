@@ -6,5 +6,5 @@ return [
     'email' => 'Email',
     'message' => 'Message',
     'submit' => 'Envoyer',
-    'prefer-email' => 'Si vous préférez utiliser votre app de mail -> <a href="mailto::email">:email</a>'
+    'prefer-email' => 'Si vous préférez utiliser votre app de mail <a href="mailto::email">-> <span>:email</span></a>'
 ];

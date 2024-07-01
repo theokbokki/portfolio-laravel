@@ -22,12 +22,17 @@ class Contact {
     handleOpen(e) {
         e.preventDefault();
 
+        this.scrollPosition = window.scrollY;
+        document.body.classList.add('bodyblock');
         this.container.dataset.visible = true;
     }
 
     handleClose(e) {
         e.preventDefault();
 
+        document.body.classList.remove('bodyblock');
+        window.scrollTo(0, this.scrollPosition);
+        this.container.style.top = this.scrollPosition + 'px';
         this.container.classList.add('contact--hide');
     }
 
@@ -35,6 +40,7 @@ class Contact {
         if (e.animationName === 'fade-out') {
             this.container.dataset.visible = false;
             this.container.classList.remove('contact--hide');
+            this.container.style.top = 0;
         }
     }
 
@@ -44,9 +50,11 @@ class Contact {
         const formData = new FormData(e.target);
         const res = await axios.post('/contact', formData);
 
-        this.fields.innerHTML = res.data;
+        this.fields.innerHTML = res.data.html;
 
-        this.handleClose(e);
+        if (res.data.success) {
+            this.handleClose(e);
+        }
     }
 }
 

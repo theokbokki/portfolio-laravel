@@ -4,10 +4,11 @@
 .contact {
     display: none;
     position: absolute;
+    inset: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     z-index: 20;
-    padding-top: 2rem;
 
     &--hide {
         .contact__background {
@@ -36,33 +37,35 @@
     }
 
     &__content {
-        display: grid;
         background: colors.$white;
-        margin: auto 0 0rem;
-        height: max-content;
-        max-height: 100vh;
-        padding: 4rem max(1rem, calc((100% - 51rem) / 2)) 5rem;
+        height: 80vh;
+        height: 80dvh;
+        padding: 1rem max(1rem, calc((100% - 51rem) / 2)) 2rem;
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
         animation: 500ms cubic-bezier(.32,.72,0,1) forwards slide-up;
         transform: translateY(100%);
         overflow: scroll;
+        display: grid;
+        margin: auto 0 0;
+        overflow: scroll;
+        overscroll-behavior: contain;
 
         &:before {
             content: "";
-            position: absolute;
+            position: sticky;
+            top: 0;
             background: colors.$grey-200;
             width: 7.5rem;
             height: 0.5rem;
-            top: 1rem;
             border-radius: 999px;
             justify-self: center;
         }
     }
 
     &__title {
-        font-size:1.5rem;
-        margin-bottom: 2.5rem;
+        font-size: 1.5rem;
+        margin: 3rem 0 2.5rem;
     }
 
     &__form {
@@ -80,10 +83,11 @@
     }
 
     &__label {
-        font-size: 0.875rem;
+        font-size: 1rem;
     }
 
     &__input {
+        font-size: 1rem;
         border: none;
         padding: .75rem .5rem;
         color: colors.$grey-700;
@@ -115,7 +119,7 @@
 
     &__error {
         margin-top: .25rem;
-        font-size: .75rem;
+        font-size: .875rem;
         color: colors.$error;
     }
 
@@ -124,11 +128,13 @@
         display: flex;
         gap: .25rem;
         justify-content: center;
-        align-content: center;
-        padding: 1rem 1rem;
+        align-items: center;
+        padding: .5rem 1rem;
         background: linear-gradient(to bottom, colors.$grey-50, colors.$grey-100);
         color: colors.$grey-500;
-        font-size: 0.875rem;
+        font-size: 1rem;
+        font-weight: 400;
+        font-family: fonts.$open-runde;
         border: none;
         border-radius: .5rem;
         box-shadow: 0 0 0 .5px colors.$grey-200;
@@ -169,15 +175,32 @@
             width: 0.875rem;
             height: 0.875rem;
             transition: 200ms transform ease-out;
+            margin-top: -0.1875rem;
         }
     }
 
     &__mail {
         display: block;
-        text-align: right;
         margin-top: 2rem;
-        font-size: 0.875rem;
-        text-decoration: none;
+        font-size: 1rem;
+        line-height: 150%;
+        text-align: right;
+
+        a {
+            text-decoration: none;
+        }
+
+        span {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 480px) {
+            text-align: left;
+
+            a {
+                display: block;
+            }
+        }
     }
 }
 

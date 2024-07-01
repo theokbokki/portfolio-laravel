@@ -22,9 +22,13 @@ class ContactFormController extends Controller
             if ($request->ajax()) {
                 session()->flashInput($request->except('_token'));
 
-                return view('components/contact', [])
+                $view = view('components/contact', [])
                     ->withErrors($validator)
                     ->fragment('fields');
+
+                return response()->json([
+                    'html' => $view,
+                ]);
             }
 
             return redirect()
@@ -41,8 +45,13 @@ class ContactFormController extends Controller
         ));
 
         if ($request->ajax()) {
-            return view('components/contact', [])
+            $view = view('components/contact', [])
                 ->fragment('fields');
+
+            return response()->json([
+                'success' => true,
+                'html' => $view
+            ]);
         }
 
         return redirect()->back()->with('success', true);

@@ -119,12 +119,15 @@
         border-radius: .5rem;
         overflow-x: scroll;
         font-family: monospace;
-        font-size: .875rem;
+
+        * {
+            font-size: .875rem;
+        }
 
         code {
-            > *:not(:first-child):not(:last-child) {
-                display: inline-block;
-                margin-top: 1rem;
+            > * {
+                display: block;
+                line-height: 160%;
             }
         }
     }
@@ -139,9 +142,11 @@
     }
 
     table {
-        width: 100%;
+        display: inline-block;
+        max-width: 100%;
         font-size: .875rem;
         text-align: left;
+        overflow: scroll;
 
         thead {
             font-weight: bold;
